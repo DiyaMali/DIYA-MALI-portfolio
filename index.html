@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diya Mali — AI Product Developer, Content Strategist & Community Builder</title>
+<meta name="description" content="Portfolio of Diya Mali — AI product developer, content strategist, and community builder. Engineered Gemini-powered platforms, led AI/ML outreach to 100+ students, IIT Bombay NEC 2025 Finalist, Google Gemini Ambassador.">
+
+<!-- Fonts & Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+  html, body, #root { 
+    background: #0C0C0C; 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+    color: #D7E2EA;
+    overflow-x: clip;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* Signature Hero Gradient Heading */
+  .hero-heading {
+    background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Signature Contact Button */
+  .contact-btn {
+    background: linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%);
+    box-shadow: 0px 4px 4px rgba(181, 1, 167, 0.25), 4px 4px 12px #7721B1 inset;
+    outline: 2px solid #fff;
+    outline-offset: -3px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  }
+  .contact-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0px 8px 20px rgba(181, 1, 167, 0.45), 4px 4px 16px #9d29e8 inset;
+  }
+
+  /* Ghost Button */
+  .ghost-btn {
+    border: 2px solid #D7E2EA;
+    color: #D7E2EA;
+    transition: all 0.25s ease;
+  }
+  .ghost-btn:hover {
+    background: rgba(215, 226, 234, 0.12);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  /* Nav Links */
+  .nav-link {
+    transition: opacity 0.2s ease;
+    position: relative;
+  }
+  .nav-link:hover {
+    opacity: 0.7;
+  }
+
+  /* Reveal Animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(.25,.1,.25,1), transform 0.7s cubic-bezier(.25,.1,.25,1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Marquee Component */
+  .marquee-wrapper {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-row {
+    display: flex;
+    gap: 16px;
+    will-change: transform;
+    animation: marqueeScroll 34s linear infinite;
+  }
+  .marquee-row.reverse {
+    animation: marqueeScrollReverse 40s linear infinite;
+  }
+  .marquee-wrapper:hover .marquee-row {
+    animation-play-state: paused;
+  }
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marqueeScrollReverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .marquee-tile {
+    width: 340px;
+    height: 220px;
+    flex: 0 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(215, 226, 234, 0.12);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    background: #141416;
+  }
+  @media (min-width: 768px) {
+    .marquee-tile { width: 420px; height: 270px; }
+  }
+  .marquee-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .marquee-tile:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(182, 0, 168, 0.6);
+  }
+  .marquee-tile:hover img {
+    transform: scale(1.08);
+  }
+
+  /* Glassmorphism Cards */
+  .glass-card {
+    background: rgba(20, 20, 24, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(215, 226, 234, 0.08);
+    border-radius: 24px;
+  }
+  .glass-card-interactive {
+    background: rgba(24, 24, 28, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(215, 226, 234, 0.1);
+    border-radius: 24px;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .glass-card-interactive:hover {
+    background: rgba(32, 32, 38, 0.9);
+    border-color: rgba(182, 0, 168, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(182, 0, 168, 0.15);
+  }
+
+  /* Sticky Stacking Cards */
+  .sticky-card {
+    position: sticky;
+    top: 5rem;
+  }
+  @media (min-width: 768px) {
+    .sticky-card { top: 7rem; }
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0C0C0C; }
+  ::-webkit-scrollbar-thumb { background: #26262A; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #B600A8; }
+
+  /* Lightbox Modal */
+  .modal-backdrop {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+</head>
+<body class="bg-[#0C0C0C] text-[#D7E2EA] antialiased selection:bg-[#B600A8] selection:text-white">
+
+<!-- ============ HERO SECTION ============ -->
+<header class="h-screen flex flex-col relative" style="overflow-x:clip;">
+  
+  <!-- Navigation Bar (Centered and Grouped Near Each Other) -->
+  <nav class="flex justify-center items-center gap-8 sm:gap-12 md:gap-16 pt-6 md:pt-8 reveal in z-30" style="color:#D7E2EA;">
+    <a href="#about" class="nav-link text-sm md:text-base lg:text-lg font-medium uppercase tracking-wider hover:text-white transition-colors duration-300">About</a>
+    <a href="#experience" class="nav-link text-sm md:text-base lg:text-lg font-medium uppercase tracking-wider hover:text-white transition-colors duration-300">Experience</a>
+    <a href="#capabilities" class="nav-link text-sm md:text-base lg:text-lg font-medium uppercase tracking-wider hover:text-white transition-colors duration-300">Services</a>
+    <a href="#contact" class="nav-link text-sm md:text-base lg:text-lg font-medium uppercase tracking-wider hover:text-white transition-colors duration-300">Contact</a>
+  </nav>
+
+  <!-- Big Hero Heading (Exact style & typography from reference image) -->
+  <div class="overflow-hidden w-full mt-6 sm:mt-4 md:-mt-5 z-10">
+    <h1 class="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-center reveal in select-none"
+        style="font-size:clamp(3.5rem, 16vw, 17.5vw);">
+      hi, i&#8217;m diya
+    </h1>
+  </div>
+
+  <!-- Hero Arch Portrait Container (Exact Arch Cutout Frame from User Reference Screenshot) -->
+  <div id="heroPortraitWrap" class="absolute left-1/2 -translate-x-1/2 z-20 bottom-0 w-[270px] sm:w-[350px] md:w-[410px] lg:w-[460px]">
+    <div class="relative overflow-hidden rounded-t-[140px] sm:rounded-t-[180px] md:rounded-t-[220px] rounded-b-none border-t border-x border-white/20 shadow-2xl bg-[#141416]">
+      <img id="heroPortrait" src="assets/diya_portrait.jpg" alt="Diya Mali" 
+           class="w-full h-[350px] sm:h-[450px] md:h-[510px] object-cover object-top filter brightness-105 contrast-105 transition-transform duration-300">
+    </div>
+  </div>
+
+  <!-- Bottom Bar: Left Text & Right Signature Contact Button -->
+  <div class="flex justify-between items-end pb-7 sm:pb-8 md:pb-10 px-6 md:px-10 mt-auto relative z-30 w-full">
+    <div class="flex flex-col gap-2 max-w-[240px] sm:max-w-[340px] md:max-w-[440px] lg:max-w-[550px]">
+      <p class="reveal in font-light uppercase tracking-wide leading-snug"
+         style="color:#D7E2EA; font-size:clamp(0.75rem, 1.3vw, 1.25rem);">
+        I don&rsquo;t just write about tech. I build it, ship it, and tell people why it matters.
+      </p>
+      <p class="reveal in font-normal leading-relaxed text-[#BBCCD7]/70 text-[10px] sm:text-xs tracking-wide"
+         style="font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.03em;">
+        AI product developer, Content strategist and community builder &mdash; usually all in the same week. I&rsquo;ve led AI/ML outreach to 170+ students, engineered Gemini-powered platforms, and grown developer communities from zero.
+      </p>
+    </div>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=malidiya556@gmail.com" target="_blank" class="contact-btn reveal in rounded-full text-white font-medium uppercase tracking-widest px-8 py-3 sm:px-10 sm:py-3.5 md:px-12 md:py-4 text-xs sm:text-sm md:text-base whitespace-nowrap shrink-0 ml-4">
+      Contact Me
+    </a>
+  </div>
+
+</header>
+
+<!-- ============ MARQUEE SHOWCASE ============ -->
+<section class="py-12 bg-[#09090A] border-y border-white/5 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 mb-6 flex justify-between items-center">
+    <span class="text-xs uppercase tracking-widest text-[#646973] font-semibold flex items-center gap-2">
+      <i data-lucide="sparkles" class="w-4 h-4 text-[#B600A8]"></i> Experience Highlights Stream
+    </span>
+    <span class="text-xs uppercase tracking-widest text-[#646973]">Hover to Pause • Click to Expand</span>
+  </div>
+
+  <!-- Row 1: Left Scroll (5 Distinct Unique Experience Photos: exp_1, exp_11, exp_14, exp_17, exp_19) -->
+  <div class="marquee-wrapper mb-4">
+    <div class="marquee-row">
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_1.png', 'E-Summit Recognition')">
+        <img src="assets/experiences/exp_1.png" alt="Experience 1" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_11.png', 'DIPEX 2025 Innovation Contest')">
+        <img src="assets/experiences/exp_11.png" alt="Experience 11" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_14.png', 'E-Summit Speaker & Founder Event')">
+        <img src="assets/experiences/exp_14.png" alt="Experience 14" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_17.png', 'Gemini X LinkedIn Workshop')">
+        <img src="assets/experiences/exp_17.png" alt="Experience 17" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_19.png', 'FOSS United Nashik Meetup')">
+        <img src="assets/experiences/exp_19.png" alt="Experience 19" loading="lazy">
+      </div>
+
+      <!-- Duplicate Set for Seamless Infinite Loop -->
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_1.png', 'E-Summit Recognition')">
+        <img src="assets/experiences/exp_1.png" alt="Experience 1" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_11.png', 'DIPEX 2025 Innovation Contest')">
+        <img src="assets/experiences/exp_11.png" alt="Experience 11" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_14.png', 'E-Summit Speaker & Founder Event')">
+        <img src="assets/experiences/exp_14.png" alt="Experience 14" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_17.png', 'Gemini X LinkedIn Workshop')">
+        <img src="assets/experiences/exp_17.png" alt="Experience 17" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_19.png', 'FOSS United Nashik Meetup')">
+        <img src="assets/experiences/exp_19.png" alt="Experience 19" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Right Scroll (5 Distinct Unique Experience Photos: exp_5, exp_10, exp_12, exp_13, exp_18) -->
+  <div class="marquee-wrapper">
+    <div class="marquee-row reverse">
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_5.png', 'MAVI\'s Pantry Internship with Vikram Mittal')">
+        <img src="assets/experiences/exp_5.png" alt="Experience 5" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_10.png', 'DIPEX Project Presentation')">
+        <img src="assets/experiences/exp_10.png" alt="Experience 10" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_12.png', 'DevFest Pune Tech Conference')">
+        <img src="assets/experiences/exp_12.png" alt="Experience 12" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_13.png', 'GDG Cloud Community Days')">
+        <img src="assets/experiences/exp_13.png" alt="Experience 13" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_18.png', 'Award of Excellence Recognition')">
+        <img src="assets/experiences/exp_18.png" alt="Experience 18" loading="lazy">
+      </div>
+
+      <!-- Duplicate Set for Seamless Infinite Loop -->
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_5.png', 'MAVI\'s Pantry Internship with Vikram Mittal')">
+        <img src="assets/experiences/exp_5.png" alt="Experience 5" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_10.png', 'DIPEX Project Presentation')">
+        <img src="assets/experiences/exp_10.png" alt="Experience 10" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_12.png', 'DevFest Pune Tech Conference')">
+        <img src="assets/experiences/exp_12.png" alt="Experience 12" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_13.png', 'GDG Cloud Community Days')">
+        <img src="assets/experiences/exp_13.png" alt="Experience 13" loading="lazy">
+      </div>
+      <div class="marquee-tile" onclick="openLightbox('assets/experiences/exp_18.png', 'Award of Excellence Recognition')">
+        <img src="assets/experiences/exp_18.png" alt="Experience 18" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT SECTION ============ -->
+<section id="about" class="py-24 max-w-7xl mx-auto px-6 md:px-10 relative space-y-16">
+  
+  <!-- Row 1: Bio (Left) & Education/Contact (Right) -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    
+    <!-- Left Bio & Background -->
+    <div class="lg:col-span-7 space-y-8 reveal">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#B600A8]/10 border border-[#B600A8]/20 text-[#B600A8] text-xs font-semibold uppercase tracking-widest">
+        <i data-lucide="user" class="w-3.5 h-3.5"></i> Biography &amp; Background
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white leading-tight">
+        AI Product Developer, <span class="bg-gradient-to-r from-[#B600A8] to-[#BE4C00] bg-clip-text text-transparent">Content Strategist</span> &amp; Community Builder
+      </h2>
+
+      <div class="text-base sm:text-lg text-[#BBCCD7] leading-relaxed font-light space-y-4">
+        <p>
+          I picked up the Gemini API out of curiosity one afternoon. A few months later, Google made me a Gemini Student Ambassador, leading AI outreach for 170+ students.
+        </p>
+        <p>
+          That&rsquo;s my pattern: learn a tool, ship something real, then make people hear about it. Shipping is only half the job. Founding a 450+ member developer community in just 7 days needed real program management: logistics, timelines, and good communication. Shadowing a founder at MAVI&rsquo;s Pantry sharpened the other half: turning strategy into action points a team could execute, early product management instincts before I had the title.
+        </p>
+        <p>
+          Selected from 30,000+ applicants for that internship. Named an IIT Bombay NEC finalist. I chase problems big enough to need the build, the story, and the process behind both.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Education & Contact Card -->
+    <div class="lg:col-span-5 space-y-6 reveal">
+      
+      <!-- Education Card -->
+      <div class="glass-card p-8 relative overflow-hidden border border-white/10">
+        <h3 class="text-xs uppercase tracking-widest text-[#646973] font-bold mb-4 pb-3 border-b border-white/10 flex justify-between items-center">
+          <span>Education &amp; Institution</span>
+          <i data-lucide="graduation-cap" class="w-4 h-4 text-[#B600A8]"></i>
+        </h3>
+
+        <div class="space-y-4">
+          <div>
+            <div class="text-xl font-bold text-white uppercase tracking-tight">B.E. in Computer Engineering</div>
+            <div class="text-xs text-[#B600A8] font-semibold mt-1">DBATU (Bapusaheb Shivajirao Deore College of Engg), Dhule</div>
+            <div class="flex justify-between items-center mt-2 text-xs text-[#BBCCD7]">
+              <span>Batch: 2023 — 2027</span>
+              <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold">CGPA: 8.2</span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-white/5">
+            <div class="text-xs font-semibold text-white uppercase tracking-wider mb-2">Core Coursework</div>
+            <div class="flex flex-wrap gap-1.5 text-[11px] text-[#BBCCD7]">
+              <span class="px-2 py-0.5 rounded bg-white/5">Data Structures</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">DBMS</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Operating Systems</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">AI Fundamentals</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Machine Learning</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Compiler Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Contact Info Card -->
+      <div class="glass-card p-6 border border-white/10 space-y-3">
+        <div class="text-xs font-bold text-white uppercase tracking-wider mb-2 flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-4 h-4 text-[#BE4C00]"></i> Direct Details
+        </div>
+        <div class="text-xs text-[#BBCCD7] space-y-2">
+          <div class="flex items-center justify-between">
+            <span>Location:</span> <span class="font-semibold text-white">Dhule, Maharashtra, India</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span>Phone:</span> <a href="tel:+918459899417" class="font-semibold text-white hover:text-[#B600A8]">+91 8459899417</a>
+          </div>
+          <div class="flex items-center justify-between">
+            <span>Email:</span> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=malidiya556@gmail.com" target="_blank" class="font-semibold text-white hover:text-[#B600A8]">malidiya556@gmail.com</a>
+          </div>
+        </div>
+        <div class="pt-3 flex gap-3">
+          <a href="https://github.com/DiyaMali" target="_blank" class="flex-1 text-center py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold uppercase text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-1.5">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=malidiya556@gmail.com" target="_blank" class="flex-1 text-center py-2 rounded-xl bg-[#B600A8]/20 border border-[#B600A8]/40 text-xs font-semibold uppercase text-white hover:bg-[#B600A8]/40 transition-colors flex items-center justify-center gap-1.5">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Row 2: Full-Width Technical Skills & Stack -->
+  <div class="space-y-6 pt-8 border-t border-white/5 reveal">
+    <h3 class="text-xs uppercase tracking-widest text-[#646973] font-bold flex items-center gap-2">
+      <i data-lucide="cpu" class="w-4 h-4 text-[#B600A8]"></i> Technical Skills &amp; Stack
+    </h3>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- AI, ML & Frameworks -->
+      <div class="glass-card p-5 border-l-4 border-l-[#B600A8] flex flex-col justify-between">
+        <div>
+          <div class="text-xs uppercase tracking-wider text-[#B600A8] font-bold mb-3">AI, ML &amp; Frameworks</div>
+          <div class="flex flex-wrap gap-1.5 text-xs text-[#D7E2EA]">
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Google Gemini API</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">FastAPI</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Agentic AI</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Claude API</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Cursor</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">GitHub Copilot</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages & Core -->
+      <div class="glass-card p-5 border-l-4 border-l-[#7621B0] flex flex-col justify-between">
+        <div>
+          <div class="text-xs uppercase tracking-wider text-[#7621B0] font-bold mb-3">Languages &amp; Core</div>
+          <div class="flex flex-wrap gap-1.5 text-xs text-[#D7E2EA]">
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Python</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">TypeScript</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">C / C++</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Java</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">HTML / CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data, Cloud & Automation -->
+      <div class="glass-card p-5 border-l-4 border-l-[#BE4C00] flex flex-col justify-between">
+        <div>
+          <div class="text-xs uppercase tracking-wider text-[#BE4C00] font-bold mb-3">Data, Cloud &amp; Automation</div>
+          <div class="flex flex-wrap gap-1.5 text-xs text-[#D7E2EA]">
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">GCP</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Firebase</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">AWS Cloud</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Power BI</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Data Analytics</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">n8n Automation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Leadership -->
+      <div class="glass-card p-5 border-l-4 border-l-[#3B82F6] flex flex-col justify-between">
+        <div>
+          <div class="text-xs uppercase tracking-wider text-[#3B82F6] font-bold mb-3">Tools &amp; Leadership</div>
+          <div class="flex flex-wrap gap-1.5 text-xs text-[#D7E2EA]">
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Git / GitHub</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">REST APIs</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Community Building</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/5">Public Speaking</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ THE FULL TOOLKIT (SKILLS SECTION) ============ -->
+<section id="toolkit" class="py-24 bg-[#08080A] border-t border-white/5 relative">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    
+    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white text-center mb-16 reveal">
+      THE FULL TOOLKIT
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-y-12 gap-x-12 lg:gap-x-16 reveal">
+      
+      <!-- Category 1: Content & Campaigns -->
+      <div class="space-y-4">
+        <h3 class="text-xs uppercase tracking-widest font-bold text-[#646973] pb-2 border-b border-white/10">
+          CONTENT &amp; CAMPAIGNS
+        </h3>
+        <ul class="space-y-2.5 text-[#D7E2EA]">
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Content Strategy</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Campaign Ideation &amp; Execution</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Storytelling &amp; Copywriting</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Newsletters &amp; Blogs</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Thought-Leadership Content</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Promotional Assets</li>
+        </ul>
+      </div>
+
+      <!-- Category 2: Community & Events -->
+      <div class="space-y-4">
+        <h3 class="text-xs uppercase tracking-widest font-bold text-[#646973] pb-2 border-b border-white/10">
+          COMMUNITY &amp; EVENTS
+        </h3>
+        <ul class="space-y-2.5 text-[#D7E2EA]">
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Hackathon &amp; Workshop Programming</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Hack2skill Event Experience</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Community Building</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Public Speaking</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Audience Engagement</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Event Management</li>
+        </ul>
+      </div>
+
+      <!-- Category 3: Research & Optimization -->
+      <div class="space-y-4">
+        <h3 class="text-xs uppercase tracking-widest font-bold text-[#646973] pb-2 border-b border-white/10">
+          RESEARCH &amp; OPTIMIZATION
+        </h3>
+        <ul class="space-y-2.5 text-[#D7E2EA]">
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Trend &amp; Competitor Research</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">SEO Fundamentals</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Analytics &amp; Performance Tracking</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Power BI</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Data-Driven Content Optimization</li>
+        </ul>
+      </div>
+
+      <!-- Category 4: Languages -->
+      <div class="space-y-4">
+        <h3 class="text-xs uppercase tracking-widest font-bold text-[#646973] pb-2 border-b border-white/10">
+          LANGUAGES
+        </h3>
+        <ul class="space-y-2.5 text-[#D7E2EA]">
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Python</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">C</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">C++</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Java</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">TypeScript</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">HTML / CSS</li>
+        </ul>
+      </div>
+
+      <!-- Category 5: AI & ML -->
+      <div class="space-y-4">
+        <h3 class="text-xs uppercase tracking-widest font-bold text-[#646973] pb-2 border-b border-white/10">
+          AI &amp; ML
+        </h3>
+        <ul class="space-y-2.5 text-[#D7E2EA]">
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Google Gemini API</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Machine Learning</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Agentic AI</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">FastAPI</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Claude API &amp; Claude Code</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Cursor &amp; GitHub Copilot</li>
+        </ul>
+      </div>
+
+      <!-- Category 6: Data, Cloud & Tools -->
+      <div class="space-y-4">
+        <h3 class="text-xs uppercase tracking-widest font-bold text-[#646973] pb-2 border-b border-white/10">
+          DATA, CLOUD &amp; TOOLS
+        </h3>
+        <ul class="space-y-2.5 text-[#D7E2EA]">
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Data Analysis</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Firebase &amp; GCP</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">AWS Cloud Foundations</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">n8n Automation &amp; REST APIs</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">Git / GitHub</li>
+          <li class="text-base sm:text-lg font-semibold hover:text-[#B600A8] transition-colors cursor-default">MS Excel (Advanced) &amp; Office Suite</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS SECTION (STACKING / MERGING CARDS) ============ -->
+<section id="projects" class="py-16 max-w-4xl mx-auto px-4 sm:px-6 relative">
+  
+  <!-- Giant PROJECT Header (Matching reference image) -->
+  <div class="text-center mb-10 reveal">
+    <h2 class="hero-heading font-black uppercase tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-none select-none">
+      PROJECT
+    </h2>
+    <p class="text-xs sm:text-sm text-[#BBCCD7] uppercase tracking-widest font-semibold mt-2">
+      Six things Diya&#8217;s built.
+    </p>
+  </div>
+
+  <!-- Stacking / Merging Deck Cards Container (Optimized for 100% Viewport Visibility Before Merging) -->
+  <div class="relative space-y-48 sm:space-y-64">
+    
+    <!-- PROJECT 01: SPROUT -->
+    <div class="sticky top-10 sm:top-12 z-10 rounded-[20px] border border-white/20 bg-[#121215] p-3.5 sm:p-4 md:p-5 shadow-2xl transition-all duration-300 reveal">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-2.5">
+        <div class="flex items-baseline gap-3">
+          <span class="text-2xl sm:text-3xl font-black text-white/90 font-sans tracking-tighter">01</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-extrabold uppercase text-white tracking-tight">SPROUT</h3>
+            <p class="text-[11px] sm:text-xs text-[#BBCCD7] font-light mt-0.5 max-w-md">
+              Sustainable-living tracker that turns everyday choices into a garden that grows with you.
+            </p>
+          </div>
+        </div>
+        <a href="https://github.com/DiyaMali" target="_blank" 
+           class="self-start sm:self-auto rounded-full border border-white/30 hover:border-white px-3.5 py-1 text-[10px] uppercase tracking-widest font-semibold text-white transition-all hover:bg-white/10 shrink-0">
+          REPOSITORY
+        </a>
+      </div>
+      <div class="rounded-[12px] bg-[#18181c] overflow-hidden border border-white/10 p-1.5 group cursor-pointer"
+           onclick="openLightbox('assets/projects/proj_sprout.png', 'Sprout Sustainable Living Platform')">
+        <img src="assets/projects/proj_sprout.png" alt="Sprout Platform" class="w-full h-40 sm:h-48 md:h-[220px] max-h-[220px] object-cover object-top rounded-lg group-hover:scale-[1.01] transition-transform duration-500">
+      </div>
+    </div>
+
+    <!-- PROJECT 02: CHUNAV MITRA -->
+    <div class="sticky top-12 sm:top-14 z-20 rounded-[20px] border border-white/20 bg-[#121215] p-3.5 sm:p-4 md:p-5 shadow-2xl transition-all duration-300 reveal">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-2.5">
+        <div class="flex items-baseline gap-3">
+          <span class="text-2xl sm:text-3xl font-black text-white/90 font-sans tracking-tighter">02</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-extrabold uppercase text-white tracking-tight">CHUNAV MITRA</h3>
+            <p class="text-[11px] sm:text-xs text-[#BBCCD7] font-light mt-0.5 max-w-md">
+              Civic education simulation — cut citizen information-discovery latency by 68% and lifted engagement 61%.
+            </p>
+          </div>
+        </div>
+        <a href="https://github.com/DiyaMali/Chunavmitra_1" target="_blank" 
+           class="self-start sm:self-auto rounded-full border border-white/30 hover:border-white px-3.5 py-1 text-[10px] uppercase tracking-widest font-semibold text-white transition-all hover:bg-white/10 shrink-0">
+          REPOSITORY
+        </a>
+      </div>
+      <div class="rounded-[12px] bg-[#18181c] overflow-hidden border border-white/10 p-1.5 group cursor-pointer"
+           onclick="openLightbox('assets/projects/proj_chunav.png', 'Chunav Mitra Platform')">
+        <img src="assets/projects/proj_chunav.png" alt="Chunav Mitra" class="w-full h-40 sm:h-48 md:h-[220px] max-h-[220px] object-cover object-top rounded-lg group-hover:scale-[1.01] transition-transform duration-500">
+      </div>
+    </div>
+
+    <!-- PROJECT 03: VIRALSIM -->
+    <div class="sticky top-14 sm:top-16 z-30 rounded-[20px] border border-white/20 bg-[#121215] p-3.5 sm:p-4 md:p-5 shadow-2xl transition-all duration-300 reveal">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-2.5">
+        <div class="flex items-baseline gap-3">
+          <span class="text-2xl sm:text-3xl font-black text-white/90 font-sans tracking-tighter">03</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-extrabold uppercase text-white tracking-tight">VIRALSIM</h3>
+            <p class="text-[11px] sm:text-xs text-[#BBCCD7] font-light mt-0.5 max-w-md">
+              Predicts content virality before you post — modeled 10,000+ engagement events, cut experimentation time 63%.
+            </p>
+          </div>
+        </div>
+        <a href="https://github.com/DiyaMali/viralsim" target="_blank" 
+           class="self-start sm:self-auto rounded-full border border-white/30 hover:border-white px-3.5 py-1 text-[10px] uppercase tracking-widest font-semibold text-white transition-all hover:bg-white/10 shrink-0">
+          REPOSITORY
+        </a>
+      </div>
+      <div class="rounded-[12px] bg-white overflow-hidden border border-white/10 p-2 group cursor-pointer"
+           onclick="openLightbox('assets/projects/proj_viralsim.png', 'Viralsim Engine')">
+        <img src="assets/projects/proj_viralsim.png" alt="Viralsim" class="w-full h-56 sm:h-72 md:h-[320px] max-h-[340px] object-contain object-center rounded-lg group-hover:scale-[1.01] transition-transform duration-500">
+      </div>
+    </div>
+
+    <!-- PROJECT 04: EVENTSPHERE -->
+    <div class="sticky top-16 sm:top-18 z-40 rounded-[20px] border border-white/20 bg-[#121215] p-3.5 sm:p-4 md:p-5 shadow-2xl transition-all duration-300 reveal">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-2.5">
+        <div class="flex items-baseline gap-3">
+          <span class="text-2xl sm:text-3xl font-black text-white/90 font-sans tracking-tighter">04</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-extrabold uppercase text-white tracking-tight">EVENTSPHERE</h3>
+            <p class="text-[11px] sm:text-xs text-[#BBCCD7] font-light mt-0.5 max-w-md">
+              Smart event intelligence platform — aggregated 1,000+ event records, cut search overhead 74%.
+            </p>
+          </div>
+        </div>
+        <a href="https://github.com/DiyaMali/EventSphere" target="_blank" 
+           class="self-start sm:self-auto rounded-full border border-white/30 hover:border-white px-3.5 py-1 text-[10px] uppercase tracking-widest font-semibold text-white transition-all hover:bg-white/10 shrink-0">
+          REPOSITORY
+        </a>
+      </div>
+      <div class="rounded-[12px] bg-[#18181c] overflow-hidden border border-white/10 p-1.5 group cursor-pointer"
+           onclick="openLightbox('assets/projects/proj_eventsphere.png', 'EventSphere Interface')">
+        <img src="assets/projects/proj_eventsphere.png" alt="EventSphere" class="w-full h-40 sm:h-48 md:h-[220px] max-h-[220px] object-cover object-top rounded-lg group-hover:scale-[1.01] transition-transform duration-500">
+      </div>
+    </div>
+
+    <!-- PROJECT 05: ARCFORM -->
+    <div class="sticky top-18 sm:top-20 z-50 rounded-[20px] border border-white/20 bg-[#121215] p-3.5 sm:p-4 md:p-5 shadow-2xl transition-all duration-300 reveal">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-2.5">
+        <div class="flex items-baseline gap-3">
+          <span class="text-2xl sm:text-3xl font-black text-white/90 font-sans tracking-tighter">05</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-extrabold uppercase text-white tracking-tight">ARCFORM</h3>
+            <p class="text-[11px] sm:text-xs text-[#BBCCD7] font-light mt-0.5 max-w-md">
+              AI model evaluation &amp; performance tracking dashboard — real-time latency, throughput, and accuracy telemetry.
+            </p>
+          </div>
+        </div>
+        <a href="https://github.com/DiyaMali" target="_blank" 
+           class="self-start sm:self-auto rounded-full border border-white/30 hover:border-white px-3.5 py-1 text-[10px] uppercase tracking-widest font-semibold text-white transition-all hover:bg-white/10 shrink-0">
+          REPOSITORY
+        </a>
+      </div>
+      <div class="rounded-[12px] bg-[#18181c] overflow-hidden border border-white/10 p-1.5 group cursor-pointer"
+           onclick="openLightbox('assets/projects/proj_arcform.png', 'Arcform AI Model Evaluation Dashboard')">
+        <img src="assets/projects/proj_arcform.png" alt="Arcform Platform" class="w-full h-40 sm:h-48 md:h-[220px] max-h-[220px] object-cover object-top rounded-lg group-hover:scale-[1.01] transition-transform duration-500">
+      </div>
+    </div>
+
+    <!-- PROJECT 06: VANTAGE -->
+    <div class="relative z-[60] rounded-[20px] border border-white/20 bg-[#121215] p-3.5 sm:p-4 md:p-5 shadow-2xl transition-all duration-300 reveal">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-2.5">
+        <div class="flex items-baseline gap-3">
+          <span class="text-2xl sm:text-3xl font-black text-white/90 font-sans tracking-tighter">06</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-extrabold uppercase text-white tracking-tight">VANTAGE</h3>
+            <p class="text-[11px] sm:text-xs text-[#BBCCD7] font-light mt-0.5 max-w-md">
+              Professional matchday operations platform integrating crowd analytics, security telemetry, and broadcast management.
+            </p>
+          </div>
+        </div>
+        <a href="https://github.com/DiyaMali" target="_blank" 
+           class="self-start sm:self-auto rounded-full border border-white/30 hover:border-white px-3.5 py-1 text-[10px] uppercase tracking-widest font-semibold text-white transition-all hover:bg-white/10 shrink-0">
+          REPOSITORY
+        </a>
+      </div>
+      <div class="rounded-[12px] bg-[#18181c] overflow-hidden border border-white/10 p-1.5 group cursor-pointer"
+           onclick="openLightbox('assets/projects/proj_vantage.png', 'Vantage Operations Platform')">
+        <img src="assets/projects/proj_vantage.png" alt="Vantage Operations Platform" class="w-full h-56 sm:h-72 md:h-[320px] max-h-[340px] object-cover object-top rounded-lg group-hover:scale-[1.01] transition-transform duration-500">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE SECTION ============ -->
+<section id="experience" class="py-24 max-w-7xl mx-auto px-6 md:px-10 relative">
+  <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#7621B0]/10 border border-[#7621B0]/20 text-[#7621B0] text-xs font-semibold uppercase tracking-widest mb-4">
+      <i data-lucide="briefcase" class="w-3.5 h-3.5"></i> Professional Roles
+    </div>
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white">
+      Work Experience &amp; <span class="bg-gradient-to-r from-[#646973] to-[#BBCCD7] bg-clip-text text-transparent">Leadership</span>
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    
+    <!-- Experience 1 -->
+    <div class="glass-card-interactive p-8 flex flex-col justify-between reveal">
+      <div class="space-y-4">
+        <div class="flex justify-between items-start">
+          <span class="px-3 py-1 rounded-full bg-[#B600A8]/20 text-[#B600A8] text-xs font-semibold uppercase tracking-widest">
+            Founder-Shadowing Intern
+          </span>
+          <span class="text-xs text-[#646973] font-bold">2026</span>
+        </div>
+        <h3 class="text-2xl font-bold uppercase tracking-tight text-white">MAVI's Pantry (Shark Tank India)</h3>
+        <p class="text-xs text-[#BBCCD7] leading-relaxed font-light">
+          Selected among 30,000+ applicants nationwide for an exclusive founder-shadowing internship under Co-Founder Vikram Mittal. Gained direct exposure to startup strategy, GTM execution, and business scaling.
+        </p>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-white/10">
+        <span class="text-[11px] uppercase tracking-wider text-[#646973]">Top 0.1% Selection</span>
+      </div>
+    </div>
+
+    <!-- Experience 2 -->
+    <div class="glass-card-interactive p-8 flex flex-col justify-between reveal">
+      <div class="space-y-4">
+        <div class="flex justify-between items-start">
+          <span class="px-3 py-1 rounded-full bg-[#7621B0]/20 text-[#7621B0] text-xs font-semibold uppercase tracking-widest">
+            Founder &amp; Community Lead
+          </span>
+          <span class="text-xs text-[#646973] font-bold">2026 – Present</span>
+        </div>
+        <h3 class="text-2xl font-bold uppercase tracking-tight text-white">Pandora Developer Community</h3>
+        <p class="text-xs text-[#BBCCD7] leading-relaxed font-light">
+          Founded and scaled a 400+ member developer community in 7 days. Led hackathons, technical workshops, peer-learning initiatives, and industry engagement programs.
+        </p>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-white/10">
+        <span class="text-[11px] uppercase tracking-wider text-[#646973]">400+ Members in 7 Days</span>
+      </div>
+    </div>
+
+    <!-- Experience 3 -->
+    <div class="glass-card-interactive p-8 flex flex-col justify-between reveal">
+      <div class="space-y-4">
+        <div class="flex justify-between items-start">
+          <span class="px-3 py-1 rounded-full bg-[#BE4C00]/20 text-[#BE4C00] text-xs font-semibold uppercase tracking-widest">
+            Gemini Student Ambassador
+          </span>
+          <span class="text-xs text-[#646973] font-bold">2025 – 2026</span>
+        </div>
+        <h3 class="text-2xl font-bold uppercase tracking-tight text-white">Google</h3>
+        <p class="text-xs text-[#BBCCD7] leading-relaxed font-light">
+          Led AI/ML initiatives impacting 100+ students through technical workshops, outreach campaigns, and cross-functional community-building programs.
+        </p>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-white/10">
+        <span class="text-[11px] uppercase tracking-wider text-[#646973]">100+ Students Impacted</span>
+      </div>
+    </div>
+
+    <!-- Experience 4 -->
+    <div class="glass-card-interactive p-8 flex flex-col justify-between reveal">
+      <div class="space-y-4">
+        <div class="flex justify-between items-start">
+          <span class="px-3 py-1 rounded-full bg-[#3B82F6]/20 text-[#3B82F6] text-xs font-semibold uppercase tracking-widest">
+            Data Science Intern
+          </span>
+          <span class="text-xs text-[#646973] font-bold">2024 – 2025</span>
+        </div>
+        <h3 class="text-2xl font-bold uppercase tracking-tight text-white">Adverk Technologies</h3>
+        <p class="text-xs text-[#BBCCD7] leading-relaxed font-light">
+          Analyzed business datasets and automated reporting workflows, delivering actionable insights through data visualization, dashboards, and stakeholder analytics.
+        </p>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-white/10">
+        <span class="text-[11px] uppercase tracking-wider text-[#646973]">Automated Dashboards</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CAPABILITIES SECTION ============ -->
+<section id="capabilities" class="py-24 bg-[#09090B] border-y border-white/5 relative">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#BE4C00]/10 border border-[#BE4C00]/20 text-[#BE4C00] text-xs font-semibold uppercase tracking-widest mb-4">
+        <i data-lucide="layers" class="w-3.5 h-3.5"></i> Services &amp; Capabilities
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white">
+        Services &amp; Core <span class="bg-gradient-to-r from-[#B600A8] to-[#BE4C00] bg-clip-text text-transparent">Capabilities</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <div class="glass-card-interactive p-8 flex flex-col justify-between reveal">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#B600A8] to-[#7621B0] flex items-center justify-center text-white mb-6 shadow-lg">
+            <i data-lucide="cpu" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold uppercase tracking-tight text-white mb-3">AI &amp; ML Product Engineering</h3>
+          <p class="text-xs text-[#BBCCD7] leading-relaxed font-light">
+            Building Gemini-powered platforms, FastAPI backends, agentic AI workflows, and LLM-driven search discovery tools.
+          </p>
+        </div>
+      </div>
+
+      <div class="glass-card-interactive p-8 flex flex-col justify-between reveal">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#7621B0] to-[#3B82F6] flex items-center justify-center text-white mb-6 shadow-lg">
+            <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold uppercase tracking-tight text-white mb-3">Data Science &amp; Analytics</h3>
+          <p class="text-xs text-[#BBCCD7] leading-relaxed font-light">
+            Automating business reporting workflows, statistical trend forecasting, and interactive Power BI dashboard architectures.
+          </p>
+        </div>
+      </div>
+
+      <div class="glass-card-interactive p-8 flex flex-col justify-between reveal">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#BE4C00] to-[#B600A8] flex items-center justify-center text-white mb-6 shadow-lg">
+            <i data-lucide="cloud" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold uppercase tracking-tight text-white mb-3">Cloud Infrastructure &amp; CI/CD</h3>
+          <p class="text-xs text-[#BBCCD7] leading-relaxed font-light">
+            Architecting cloud-native solutions on GCP, Firebase, and AWS with automated zero-downtime deployment pipelines.
+          </p>
+        </div>
+      </div>
+
+      <div class="glass-card-interactive p-8 flex flex-col justify-between reveal">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#3B82F6] to-[#BE4C00] flex items-center justify-center text-white mb-6 shadow-lg">
+            <i data-lucide="users" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold uppercase tracking-tight text-white mb-3">Community &amp; Tech Leadership</h3>
+          <p class="text-xs text-[#BBCCD7] leading-relaxed font-light">
+            Scaling developer communities, organizing hackathons, leading technical workshops, and public speaking engagements.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ AWARDS & HONORS ============ -->
+<section id="certifications" class="py-24 max-w-7xl mx-auto px-6 md:px-10 relative">
+  
+  <!-- Section Title -->
+  <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#BE4C00]/10 border border-[#BE4C00]/20 text-[#BE4C00] text-xs font-semibold uppercase tracking-widest mb-4">
+      <i data-lucide="award" class="w-3.5 h-3.5"></i> Honors &amp; Verified Credentials
+    </div>
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white">
+      Awards &amp; <span class="bg-gradient-to-r from-[#B600A8] to-[#BE4C00] bg-clip-text text-transparent">Certifications</span>
+    </h2>
+  </div>
+
+  <!-- Key Achievements Grid (Text Cards) -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+    
+    <div class="glass-card p-6 border border-white/10 flex items-start gap-4 reveal">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#B600A8] to-[#BE4C00] flex items-center justify-center text-white shrink-0 font-bold">
+        🏆
+      </div>
+      <div>
+        <h4 class="text-base font-bold text-white uppercase tracking-tight">IIT Bombay NEC 2025 Finalist</h4>
+        <p class="text-xs text-[#BBCCD7] mt-1">Recognized in competitive national entrepreneurship challenge at IIT Bombay.</p>
+      </div>
+    </div>
+
+    <div class="glass-card p-6 border border-white/10 flex items-start gap-4 reveal">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#7621B0] to-[#3B82F6] flex items-center justify-center text-white shrink-0 font-bold">
+        🥇
+      </div>
+      <div>
+        <h4 class="text-base font-bold text-white uppercase tracking-tight">Rank 1, Google Gen AI Exchange</h4>
+        <p class="text-xs text-[#BBCCD7] mt-1">Top rank nationwide in Google Generative AI innovation program.</p>
+      </div>
+    </div>
+
+    <div class="glass-card p-6 border border-white/10 flex items-start gap-4 reveal">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#BE4C00] to-[#B600A8] flex items-center justify-center text-white shrink-0 font-bold">
+        🏅
+      </div>
+      <div>
+        <h4 class="text-base font-bold text-white uppercase tracking-tight">Rank 5, DIPEX 2025 Innovation</h4>
+        <p class="text-xs text-[#BBCCD7] mt-1">Fifth rank in state-level engineering research & innovation contest.</p>
+      </div>
+    </div>
+
+    <div class="glass-card p-6 border border-white/10 flex items-start gap-4 reveal">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#3B82F6] to-[#7621B0] flex items-center justify-center text-white shrink-0 font-bold">
+        🌟
+      </div>
+      <div>
+        <h4 class="text-base font-bold text-white uppercase tracking-tight">Google Gemini Student Ambassador</h4>
+        <p class="text-xs text-[#BBCCD7] mt-1">Selected ambassador for Google Gemini AI community programs.</p>
+      </div>
+    </div>
+
+    <div class="glass-card p-6 border border-white/10 flex items-start gap-4 reveal">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-white shrink-0 font-bold">
+        ☁️
+      </div>
+      <div>
+        <h4 class="text-base font-bold text-white uppercase tracking-tight">AWS Cloud Foundations Certified</h4>
+        <p class="text-xs text-[#BBCCD7] mt-1">Certified proficiency in AWS cloud architecture & infrastructure.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Visual Certificates Showcase Grid -->
+  <div class="space-y-6">
+    <h3 class="text-xs uppercase tracking-widest text-[#646973] font-bold pb-3 border-b border-white/10 flex items-center gap-2">
+      <i data-lucide="image" class="w-4 h-4"></i> Verified Scanned Certificate Documents
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Cert 1: Inside LVMH -->
+      <div class="glass-card-interactive p-3.5 flex flex-col justify-between border border-white/10 group cursor-pointer reveal"
+           onclick="openLightbox('assets/certificates/cert_8.png', 'Inside LVMH Certificate')">
+        <div class="overflow-hidden rounded-lg bg-black/40 border border-white/5 aspect-[4/3] mb-3">
+          <img src="assets/certificates/cert_8.png" alt="Inside LVMH Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-tight truncate">Inside LVMH Certificate</h4>
+          <p class="text-[10px] text-[#BBCCD7] mt-0.5 font-light">Luxury ecosystem &amp; branding specialization</p>
+        </div>
+      </div>
+
+      <!-- Cert 2: Google Cloud Gen AI Academy 2.0 -->
+      <div class="glass-card-interactive p-3.5 flex flex-col justify-between border border-white/10 group cursor-pointer reveal"
+           onclick="openLightbox('assets/certificates/cert_6.png', 'Google Cloud Gen AI Academy 2.0')">
+        <div class="overflow-hidden rounded-lg bg-black/40 border border-white/5 aspect-[4/3] mb-3">
+          <img src="assets/certificates/cert_6.png" alt="Gen AI Academy 2.0" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-tight truncate">Gen AI Academy 2.0</h4>
+          <p class="text-[10px] text-[#BBCCD7] mt-0.5 font-light">Google Cloud AI/ML learning track</p>
+        </div>
+      </div>
+
+      <!-- Cert 3: Google Cloud Gen AI Exchange Hackathon -->
+      <div class="glass-card-interactive p-3.5 flex flex-col justify-between border border-white/10 group cursor-pointer reveal"
+           onclick="openLightbox('assets/certificates/cert_3.png', 'Google Cloud Gen AI Exchange')">
+        <div class="overflow-hidden rounded-lg bg-black/40 border border-white/5 aspect-[4/3] mb-3">
+          <img src="assets/certificates/cert_3.png" alt="Gen AI Exchange Hackathon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-tight truncate">Gen AI Exchange Hackathon</h4>
+          <p class="text-[10px] text-[#BBCCD7] mt-0.5 font-light">Google Cloud &amp; Hack2Skill prototype</p>
+        </div>
+      </div>
+
+      <!-- Cert 4: Google Student Ambassador Program -->
+      <div class="glass-card-interactive p-3.5 flex flex-col justify-between border border-white/10 group cursor-pointer reveal"
+           onclick="openLightbox('assets/certificates/cert_4.png', 'Google Student Ambassador')">
+        <div class="overflow-hidden rounded-lg bg-black/40 border border-white/5 aspect-[4/3] mb-3">
+          <img src="assets/certificates/cert_4.png" alt="Google Student Ambassador Completion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-tight truncate">Google Student Ambassador</h4>
+          <p class="text-[10px] text-[#BBCCD7] mt-0.5 font-light">Google Student Ambassador Program</p>
+        </div>
+      </div>
+
+      <!-- Cert 5: Google Cloud Gen AI Academy -->
+      <div class="glass-card-interactive p-3.5 flex flex-col justify-between border border-white/10 group cursor-pointer reveal"
+           onclick="openLightbox('assets/certificates/cert_5.png', 'Google Cloud Gen AI Academy')">
+        <div class="overflow-hidden rounded-lg bg-black/40 border border-white/5 aspect-[4/3] mb-3">
+          <img src="assets/certificates/cert_5.png" alt="Gen AI Academy Completion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-tight truncate">Gen AI Academy</h4>
+          <p class="text-[10px] text-[#BBCCD7] mt-0.5 font-light">Google Cloud AI/ML fundamentals</p>
+        </div>
+      </div>
+
+      <!-- Cert 6: IIT Bombay NEC 2025 -->
+      <div class="glass-card-interactive p-3.5 flex flex-col justify-between border border-white/10 group cursor-pointer reveal"
+           onclick="openLightbox('assets/certificates/cert_2.png', 'IIT Bombay National Entrepreneurship Challenge')">
+        <div class="overflow-hidden rounded-lg bg-black/40 border border-white/5 aspect-[4/3] mb-3">
+          <img src="assets/certificates/cert_2.png" alt="IIT Bombay NEC Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-tight truncate">IIT Bombay NEC 2025</h4>
+          <p class="text-[10px] text-[#BBCCD7] mt-0.5 font-light">Rank 65 basic track challenge</p>
+        </div>
+      </div>
+
+      <!-- Cert 7: Adverk Technologies Data Science -->
+      <div class="glass-card-interactive p-3.5 flex flex-col justify-between border border-white/10 group cursor-pointer reveal"
+           onclick="openLightbox('assets/certificates/cert_1.png', 'Adverk Internship Certificate')">
+        <div class="overflow-hidden rounded-lg bg-black/40 border border-white/5 aspect-[4/3] mb-3">
+          <img src="assets/certificates/cert_1.png" alt="Adverk Internship Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-tight truncate">Adverk Internship</h4>
+          <p class="text-[10px] text-[#BBCCD7] mt-0.5 font-light">Data Science internship completion</p>
+        </div>
+      </div>
+
+      <!-- Cert 8: Scaler Masterclass AI & ML -->
+      <div class="glass-card-interactive p-3.5 flex flex-col justify-between border border-white/10 group cursor-pointer reveal"
+           onclick="openLightbox('assets/certificates/cert_7.png', 'Scaler AI & ML Masterclass')">
+        <div class="overflow-hidden rounded-lg bg-black/40 border border-white/5 aspect-[4/3] mb-3">
+          <img src="assets/certificates/cert_7.png" alt="Scaler Masterclass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-tight truncate">Scaler AI &amp; ML</h4>
+          <p class="text-[10px] text-[#BBCCD7] mt-0.5 font-light">Masterclass project presentation</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ CONTACT SECTION ============ -->
+<section id="contact" class="py-24 max-w-7xl mx-auto px-6 md:px-10 relative">
+  <div class="glass-card p-8 sm:p-14 border border-white/10 shadow-2xl relative overflow-hidden reveal">
+    <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[#B600A8]/20 blur-3xl"></div>
+    <div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-[#BE4C00]/20 blur-3xl"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      
+      <!-- Left Info -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#B600A8]/10 border border-[#B600A8]/20 text-[#B600A8] text-xs font-semibold uppercase tracking-widest">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i> Get in Touch
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-white leading-tight">
+          Let's Build Something <span class="bg-gradient-to-r from-[#B600A8] via-[#7621B0] to-[#BE4C00] bg-clip-text text-transparent">Impactful Together.</span>
+        </h2>
+
+        <p class="text-sm sm:text-base text-[#BBCCD7] leading-relaxed font-light">
+          Whether you're looking for an AI product builder, startup tech partner, or community leader, I'd love to connect.
+        </p>
+
+        <div class="space-y-3 pt-2">
+          <!-- Email Info -->
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=malidiya556@gmail.com" target="_blank" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 max-w-md hover:bg-white/10 hover:border-[#B600A8]/40 transition-all group">
+            <div class="flex items-center gap-3">
+              <i data-lucide="mail" class="w-5 h-5 text-[#B600A8]"></i>
+              <span class="text-sm font-medium text-white tracking-wider">malidiya556@gmail.com</span>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-[#646973] group-hover:text-[#B600A8] transition-colors"></i>
+          </a>
+
+          <!-- Phone / WhatsApp -->
+          <a href="https://wa.me/918459899417" target="_blank" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 max-w-md hover:bg-white/10 hover:border-emerald-500/40 transition-all group">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span class="text-sm font-medium text-white tracking-wider">+91 8459899417</span>
+            </div>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-[#646973] group-hover:text-emerald-400 transition-colors"></i>
+          </a>
+
+          <!-- Location Info -->
+          <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 max-w-md">
+            <i data-lucide="map-pin" class="w-5 h-5 text-[#BE4C00]"></i>
+            <span class="text-sm font-medium text-white tracking-wider">Dhule, Maharashtra, India</span>
+          </div>
+        </div>
+
+        <!-- Social Links Row -->
+        <div class="pt-5 flex flex-wrap items-center gap-3">
+          <a href="https://www.linkedin.com/in/diya-mali-a52327270" target="_blank" 
+             class="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-[#0A66C2]/15 border border-[#0A66C2]/30 hover:bg-[#0A66C2]/25 hover:border-[#0A66C2]/60 transition-all text-[#5B9BD5] hover:text-white text-xs uppercase tracking-widest font-semibold">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/DiyaMali" target="_blank" 
+             class="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-white/5 border border-white/15 hover:bg-white/10 hover:border-white/30 transition-all text-[#BBCCD7] hover:text-white text-xs uppercase tracking-widest font-semibold">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            GitHub
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=malidiya556@gmail.com" target="_blank" 
+             class="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-[#B600A8]/10 border border-[#B600A8]/25 hover:bg-[#B600A8]/20 hover:border-[#B600A8]/50 transition-all text-[#B600A8] hover:text-white text-xs uppercase tracking-widest font-semibold">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            Email
+          </a>
+          <a href="https://wa.me/918459899417" target="_blank" 
+             class="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-emerald-500/10 border border-emerald-500/25 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all text-emerald-400 hover:text-white text-xs uppercase tracking-widest font-semibold">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Form -->
+      <div class="lg:col-span-6">
+        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4 glass-card p-6 sm:p-8 border border-white/10">
+          <h3 class="text-lg font-bold uppercase tracking-wider text-white mb-2">Send Diya a Message</h3>
+          
+          <div>
+            <label class="block text-xs uppercase tracking-widest text-[#BBCCD7] mb-1">Your Name</label>
+            <input type="text" id="cfName" required placeholder="Alex Smith" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#B600A8] transition-colors">
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-widest text-[#BBCCD7] mb-1">Your Email</label>
+            <input type="email" id="cfEmail" required placeholder="alex@company.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#B600A8] transition-colors">
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-widest text-[#BBCCD7] mb-1">Opportunity Type</label>
+            <select id="cfType" class="w-full px-4 py-3 rounded-xl bg-[#141416] border border-white/10 text-white text-sm focus:outline-none focus:border-[#B600A8] transition-colors">
+              <option value="AI / Software Engineering Role">AI / Software Engineering Role</option>
+              <option value="Startup Collaboration / Shadowing">Startup Collaboration / Shadowing</option>
+              <option value="Developer Community & Speaking">Developer Community & Speaking</option>
+              <option value="Tech Consulting / Analytics">Tech Consulting / Analytics</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-widest text-[#BBCCD7] mb-1">Message</label>
+            <textarea rows="3" id="cfMsg" required placeholder="Hi Diya, I'd like to connect regarding..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#B600A8] transition-colors resize-none"></textarea>
+          </div>
+
+          <!-- Send Options: 3 real channels -->
+          <div class="grid grid-cols-3 gap-2">
+            <button type="submit" data-channel="email" class="contact-btn py-3 rounded-xl text-white font-medium uppercase tracking-widest text-[10px] sm:text-xs flex items-center justify-center gap-1.5">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <span>Email</span>
+            </button>
+            <button type="submit" data-channel="whatsapp" class="py-3 rounded-xl font-medium uppercase tracking-widest text-[10px] sm:text-xs flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white transition-colors">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>WhatsApp</span>
+            </button>
+            <button type="submit" data-channel="linkedin" class="py-3 rounded-xl font-medium uppercase tracking-widest text-[10px] sm:text-xs flex items-center justify-center gap-1.5 bg-[#0A66C2] hover:bg-[#0A66C2]/80 text-white transition-colors">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span>LinkedIn</span>
+            </button>
+          </div>
+          
+          <p class="text-center text-[10px] text-[#646973] uppercase tracking-wider">Choose a channel — your message opens pre-filled</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 bg-[#070708] border-t border-white/5 text-center text-xs text-[#646973] uppercase tracking-widest">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+    <div>© 2026 DIYA MALI — COMPUTER ENGINEERING &amp; AI BUILDER. ALL RIGHTS RESERVED.</div>
+    <div class="flex items-center gap-6">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=malidiya556@gmail.com" target="_blank" class="hover:text-white transition-colors">Email</a>
+      <a href="https://www.linkedin.com/in/diya-mali-a52327270" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+      <a href="https://github.com/DiyaMali" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+      <a href="https://wa.me/918459899417" target="_blank" class="hover:text-white transition-colors">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox Modal -->
+<div id="lightboxModal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+  <div class="modal-content relative max-w-5xl w-full bg-[#121214] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+    <div class="p-4 px-6 border-b border-white/10 flex justify-between items-center bg-[#18181B]">
+      <h4 id="lightboxTitle" class="text-sm font-bold uppercase tracking-wider text-white">Preview</h4>
+      <button onclick="closeLightbox()" class="text-[#BBCCD7] hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+    <div class="p-4 sm:p-6 flex justify-center items-center bg-[#0C0C0C] max-h-[80vh] overflow-y-auto">
+      <img id="lightboxImage" src="" alt="Preview Image" class="max-w-full max-h-[70vh] object-contain rounded-lg border border-white/10 shadow-lg">
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript Logic -->
+<script>
+  lucide.createIcons();
+
+  // Scroll reveals
+  const revealElements = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+      }
+    });
+  }, { threshold: 0.12 });
+  revealElements.forEach(el => observer.observe(el));
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // Mouse tilt on portrait
+  const portraitImg = document.getElementById('heroPortrait');
+  if (window.innerWidth > 768 && portraitImg) {
+    document.addEventListener('mousemove', (e) => {
+      const xPos = (e.clientX / window.innerWidth - 0.5) * 12;
+      const yPos = (e.clientY / window.innerHeight - 0.5) * 12;
+      portraitImg.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) scale(1.01)`;
+    });
+  }
+
+  // Lightbox
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+
+  function openLightbox(src, title) {
+    if (lightboxImage && lightboxTitle && lightboxModal) {
+      lightboxImage.src = src;
+      lightboxTitle.textContent = title || 'Asset Preview';
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    if (lightboxModal) {
+      lightboxModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  lightboxModal?.addEventListener('click', (e) => {
+    if (e.target === lightboxModal) closeLightbox();
+  });
+
+  // Form submit — routes to real channels
+  function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('cfName')?.value || '';
+    const email = document.getElementById('cfEmail')?.value || '';
+    const type = document.getElementById('cfType')?.value || '';
+    const msg = document.getElementById('cfMsg')?.value || '';
+
+    // Determine which button was clicked
+    const channel = e.submitter?.getAttribute('data-channel') || 'email';
+
+    const fullMessage = `Hi Diya, I'm ${name} (${email}).\n\nOpportunity: ${type}\n\n${msg}`;
+
+    if (channel === 'email') {
+      const subject = encodeURIComponent(`Portfolio Inquiry: ${type}`);
+      const body = encodeURIComponent(fullMessage);
+      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=malidiya556@gmail.com&su=${subject}&body=${body}`, '_blank');
+    } else if (channel === 'whatsapp') {
+      const waText = encodeURIComponent(fullMessage);
+      window.open(`https://wa.me/918459899417?text=${waText}`, '_blank');
+    } else if (channel === 'linkedin') {
+      window.open('https://www.linkedin.com/in/diya-mali-a52327270', '_blank');
+    }
+  }
+</script>
+</body>
+</html>

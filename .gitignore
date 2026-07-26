@@ -1,0 +1,25 @@
+# IDE files
+.gemini/
+.vs/
+.vscode/
+
+# Scraped temporary pages
+drive_page.html
+projects_page.html
+experinces_page.html
+extracted.html
+
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+venv/
+.venv/
+env/
+.env/
+
+# System files
+.DS_Store
+Thumbs.db
